@@ -1,0 +1,46 @@
+:Author:    Lindis Webb
+:Email:     lindis@solinea.com
+:Date:      Feb 2016
+:Revision:  0.1a
+:Module: Module 00 Ansible 101
+
+Module 00: Lab setup +
+ +
+
+*Objectives of this module:* +
+
+* Define the lab configuration for Ansible 101 (Ansible Training)
+
+'''
+*The lab environment should consist of the following:*
+
+* 1 x Ansible Command Server (ACS)
+** 1vCPU, 256MB RAM, 10GB Disk
+** install tree, openssh-server
+* 1 x Development Web/App server (dev01)
+** 1vCPU, 256MB RAM, 10GB Disk
+** install openssh-server
+* 2 x Production Web Servers (web01/web02)
+** 1vCPU, 256MB RAM, 10GB Disk
+** install openssh-server
+* 1 x Production Database Servers (db01)
+** 1vCPU, 256MB RAM, 10GB Disk
+** install openssh-server
+* 1 x Production Load Balancer (lb01)
+** 1vCPU, 256MB RAM, 10GB Disk
+** install openssh-server
+
+*Total size: 6vCPUs, 1.5GB RAM, 60GB Storage)*
+
+*User information:*
+
+ username: ansible
+ password: ansible
+ ansible is a sudo user
+
+*Network*
+
+ All require access to a apt-get repo (Internet or otherwise)
+ All can be in the same subnet (10.15.1.0/24)
+
+

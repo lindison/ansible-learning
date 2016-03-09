@@ -1,0 +1,87 @@
+:Author:    Lindis Webb and Jason Smith
+:Email:     lindis@solinea.com, jason@solinea.com
+:Date:      Feb 2016
+:Revision:  0.1a
+:Module:    Module 01, Lab Guide, Ansible 101
+:Labtime:   10 minutes
+
+
+# Ansible Lab 01 Guide
+
+## Syntax and usage section
+
+A Command that is run by the user will following a $ and look like:
+
+ $ sudo apt-get update
+
+## Validate the environment
+
+Before starting the install of ansible, ansible pre-reqs must be installed.
+These pre-reqs are few. Validate that python 2.x is installed and accessiblity
+to the ansible install packages.
+
+ $ python
+ Python 2.7.6 (default, Jun 22 2015, 17:58:13)
+ [GCC 4.8.2] on linux2
+ Type "help", "copyright", "credits" or "license" for more information.
+ >>> exit()
+
+If python is not installed, install Python
+
+ $ sudo apt-get -y install python python-setuptools python-dev
+
+After validating Python is installed, install the software-properties-common
+package for apt. First update the software repo by running
+
+ $ sudo apt-get update
+
+After which, install the software-properties-common package.
+
+ $ sudo apt-get -y install software-properties-common
+
+This provides additional functions to Ubuntu apt program. Once the package is
+installed, add the ansible ppa:ansible repository.
+
+ $ sudo apt-add-repository -y ppa:ansible/ansible
+
+Once install, update apt-get, this updates the available packages in the ppa.
+
+ $ sudo apt-get update
+
+After updating the apt-get repository, install ansible by running:
+
+ $ sudo apt-get -y install ansible
+
+This will install ansible; once completed, validate that ansible has been
+successfully installed.
+
+ $ ansible
+ Usage: ansible <host-pattern> [options]
+ Options:
+  -a MODULE_ARGS, --args=MODULE_ARGS
+                        module arguments
+  --ask-become-pass     ask for privilege escalation password
+  -k, --ask-pass        ask for connection password
+  --ask-su-pass         ask for su password (deprecated, use become)
+  -K, --ask-sudo-pass   ask for sudo password (deprecated, use become)
+  --ask-vault-pass      ask for vault password
+
+Check the installed version of ansible:
+
+ $ ansible --version
+ ansible 2.0.0.2
+  config file = /home/vagrant/ansible.cfg
+  configured module search path = Default w/o overrides
+
+List ansible installed modules:
+
+ $ ansible-doc --list
+ less 458 (GNU regular expressions)
+ Copyright (C) 1984-2012 Mark Nudelman
+ .
+ less comes with NO WARRANTY, to the extent permitted by law.
+ For information about the terms of redistribution,
+ see the file named README in the less distribution.
+ Homepage: http://www.greenwoodsoftware.com/less
+
+

@@ -1,0 +1,12 @@
+dev1
+dev2
+
+[development]
+dev1
+dev2
+
+[development:vars]
+ansible_ssh_user=vagrant
+ansible_ssh_pass=vagrant
+
+

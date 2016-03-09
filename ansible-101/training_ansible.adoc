@@ -1,0 +1,93 @@
+:Author:    Lindis Webb
+:Email:     lindis@solinea.com
+:Date:      Feb 2016
+:Revision:  0.1a
+
+*Installing Ansible Yum or Apt* +
+
+Depedencies:
+Internet connecton
+
+Using distro software repo
+sudo yum install epel-release +
+sudo yum install ansible +
+sudo apt-get install ansible +
+
+*Installing ansible from python pip* +
+
+Depedencies:
+Internet Connection
+gcc +
+python-setuptools +
+python-pip (Python Index Package) +
+python-devel +
+
+Compiling Ansible from source using Python:
+sudo pip install ansible +
+
+*Installing ansible from ansible repo* +
+
+Dependencies:
+software-properties-common +
+
+sudo apt-get -y install software-properties-common +
+sudo apt-add-repository -y ppa:ansible/ansible +
+sudo apt-get update +
+sudo apt-get -y install ansible +
+
+*Testing the Ansible Install* +
+Once Ansible is installed, Ansible is tested
+
+ansible +
+
+This will output a list of ansible switches
+
+Creating the Ansible Inventory with two entries:
+vim inventory +
+
+192.168.33.20 +
+192.168.33.30 +
+
+save the file (esc) wq + enter +
+
+Creating the Ansbile Config file (defaults to /etc/ansible/ansible.cfg) +
+
+
+
+
+ansible 192.168.33.20 -i inventory.ini -u vagrant -m ping -k
+
+-i "which inventory file to use" +
+-u "user to login with" +
+-m "ansible module to use" +
+-k "promt for login" +
+-v "debug verbose - level 1" +
+-vv "debug verbose - level 2" +
+-vvv "debug verbose - level 3" +
+-vvvv "debug verbose - level 4" +
+
+*this will result in a failure*
+
+NOTE: This fails because the ssh fingerprint is not known locally by the Ansible Control Manager. "FAILED => Using a SSH password instead of a key is not possible because Host Key checking is enabled and sshpass does not support this.  Please add this host's fingerprint to your known_hosts file to manage this host.
+
+ssh vagrant@192.168.33.20 +
+
+This returns a yes/no question. +
+The authenticity of host '192.168.33.20 (192.168.33.20)' can't be established.
+ECDSA key fingerprint is 5f:9e:bd:8a:ed:fb:67:70:d0:ae:f1:6d:46:6e:ea:2f.
+Are you sure you want to continue connecting (yes/no)? +
+
+answer "yes" and cancel out. +
+
+Rerun the previous command: +
+ansible 192.168.33.20 -i inventory.ini -u vagrant -m ping -k
+
+*this will be successful*
+
+NOTE: There are other tools to get this finger print. +
+
+
+
+
+
+

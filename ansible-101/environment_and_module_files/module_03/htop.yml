@@ -1,0 +1,10 @@
+---
+- hosts: servers
+  sudo: yes
+  gather_facts: no
+
+  tasks:
+
+  - name: install htop
+    apt: name=htop state=installed update_cache=yes
+
